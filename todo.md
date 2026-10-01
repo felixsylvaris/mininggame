@@ -37,7 +37,7 @@ bool Mechanic=False
 Actual mechanic pilot gets it to True
 
 If th worker is Iddle, we can pick them for training, this will put them status into "Training" for 6 months, there could be a list in HR tab of workers in training and when they will mature. They keep Tenure and gain more during training. 
-After 6mo they get chosen spec True. Also Pilot is +3c expected wage, and Mechanic +2c. We need to complete training in one go. 
+After 6mo they get chosen spec True. Also Pilot is +3c expected wage, and Mechanic +2c. We need to complete training in one go. So staffer with age 5 will not expect 8 after training. So it could be good way to get cheap pilots. 
 
 ### Staffers, what they even do?
 Each staffer generates 4 Opperations stat. And it is affected by efficiency. 
