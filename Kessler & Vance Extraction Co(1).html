@@ -81,6 +81,8 @@ button.ico{padding:1px 6px; font-size:.68rem;}
 <script>
 const RES = { water:{label:'Water ice'}, silica:{label:'Silica'}, carbon:{label:'Carbon'}, heavy:{label:'Heavy minerals'}, rare:{label:'Rare minerals'} };
 const WAGE_MIN = { Staffer:5, Mechanic:10, Pilot:12, Idle:5 };
+const TRAINING_DURATION = 6; // months
+const WAGE_BONUS = { Pilot: 3, Mechanic: 2 };
 const VESSEL_CATALOG = {
   TrashCrash:{price:3000, eff:{water:0.75, silica:0.75, carbon:0.75, heavy:0.75, rare:0.75}},
   RainbowDust:{price:6000, eff:{water:1, silica:1, carbon:1, heavy:1, rare:1}},
@@ -112,10 +114,10 @@ let S = {
   ownerCapital:3666, retainedEarnings:0, monthRevenue:0, monthExpenses:0,
   currentYearMonths:[], pastYears:[],
   workers:[
-    {name:'Rook Adisa', role:'Pilot', wage:12, monthsEmployed:0},
-    {name:'Denny Okafor', role:'Mechanic', wage:10, monthsEmployed:0},
-    {name:'Mira Solheim', role:'Staffer', wage:5, monthsEmployed:0},
-    {name:'Tobin Kaur', role:'Staffer', wage:5, monthsEmployed:0},
+    {name:'Rook Adisa', role:'Pilot', wage:12, monthsEmployed:0, isPilot:true, isMechanic:false, training:false, trainingType:null, trainingEndTurn:0},
+    {name:'Denny Okafor', role:'Mechanic', wage:10, monthsEmployed:0, isPilot:false, isMechanic:true, training:false, trainingType:null, trainingEndTurn:0},
+    {name:'Mira Solheim', role:'Staffer', wage:5, monthsEmployed:0, isPilot:false, isMechanic:false, training:false, trainingType:null, trainingEndTurn:0},
+    {name:'Tobin Kaur', role:'Staffer', wage:5, monthsEmployed:0, isPilot:false, isMechanic:false, training:false, trainingType:null, trainingEndTurn:0},
   ],
   nextVesselId:2, nextBondId:1, nextContractId:1, nextTuId:1, nextAstId:1,
   vessels:[ {id:1, name:'TrashCrash #1', type:'TrashCrash', costBasis:3000, accumDep:0, condition:100, mode:'owned', pilot:0, selectedAsteroid:1} ],
@@ -283,6 +285,22 @@ function takeContract(kind, key){
 
 function nextTurn(){
   const wasMonth12 = (month()===12), closingYear = year();
+  
+  // Process training completion
+  S.workers.forEach(w=>{
+    if(w.training && S.turn >= w.trainingEndTurn){
+      // Complete training
+      const completedType = w.trainingType;
+      if(completedType === 'Pilot') w.isPilot = true;
+      if(completedType === 'Mechanic') w.isMechanic = true;
+      w.training = false;
+      w.trainingType = null;
+      w.trainingEndTurn = 0;
+      w.role = 'Idle';
+      log(`${w.name} completed ${completedType} training and is now certified.`);
+    }
+  });
+  
   S.workers.forEach(w=> w.monthsEmployed = (w.monthsEmployed||0)+1);
 
   const wages = S.workers.reduce((s,w)=>s+w.wage,0);
@@ -420,11 +438,13 @@ function render(){
       <div>
         <div class="panel">
           <h2>Crew</h2>
-          <table><tr><th>Name</th><th>Role</th><th>Wage/mo</th><th>Tenure</th></tr>
+          <table><tr><th>Name</th><th>Role</th><th>Wage/mo</th><th>Tenure</th><th>Certs</th><th>Training</th></tr>
             ${S.workers.map((w,i)=>`<tr><td>${w.name}</td>
-              <td><select onchange="setRole(${i},this.value)">${['Pilot','Mechanic','Staffer','Idle'].map(r=>`<option ${w.role===r?'selected':''}>${r}</option>`).join('')}</select></td>
+              <td><select onchange="setRole(${i},this.value)">${['Pilot','Mechanic','Staffer','Idle','Training'].map(r=>`<option ${w.role===r?'selected':''}>${r}</option>`).join('')}</select></td>
               <td><input type="number" class="num" value="${w.wage}" min="${WAGE_MIN[w.role]}" onchange="setWage(${i},this.value)"></td>
-              <td class="num">${w.monthsEmployed||0}mo (+${expertiseBonus(w).toFixed(1)}%)</td></tr>`).join('')}
+              <td class="num">${w.monthsEmployed||0}mo (+${expertiseBonus(w).toFixed(1)}%)</td>
+              <td class="num">${w.isPilot ? 'P' : ''}${w.isMechanic ? 'M' : ''}${!w.isPilot && !w.isMechanic ? '-' : ''}</td>
+              <td>${w.training ? `Training (${w.trainingType})` : ''}</td></tr>`).join('')}
           </table>
           <div class="hire-row">
             <button onclick="hire('Staffer')">Hire Staffer (10cr, min 5)</button>
@@ -597,6 +617,7 @@ function render(){
       <button class="${S.tab==='accounts'?'active':''}" onclick="setTab('accounts')">Balance sheet</button>
       <button class="${S.tab==='finance'?'active':''}" onclick="setTab('finance')">Loans &amp; bonds</button>
       <button class="${S.tab==='contracts'?'active':''}" onclick="setTab('contracts')">Contracts</button>
+      <button class="${S.tab==='hr'?'active':''}" onclick="setTab('hr')">HR &amp; Training</button>
     </div>
     ${S.cash<0 ? `<div class="insolvent">Cash is negative. Sell cargo or use emergency trade before next month's wages are due.</div>` : ''}
     ${body}
