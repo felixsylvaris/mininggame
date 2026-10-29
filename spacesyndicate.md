@@ -40,10 +40,13 @@ We ave 3 mission to choose from at the time. Each have timer of 3-9 turns of ava
 ** LEGAL ** This mission will not trigger POLICE ALERT 
 ** HAZARD ** This mission may trigger 1HP loss if FAUX. 
 
+### Busy Doing Nothing LEGAL 
+We dont HAVE TO pick mission or anything. No rest, no build, no mission. Just chill in cantina listening to space surf rock. 
+
 ### Rest LEGAL
 None
 Resting is always aviable and does not count to 3 missions, maybe even use agent card to trigger it. We dont perform mission. We restore 1HP, and get rested status which gives +1 to our next mission. 
-We cant stack rested bonus, only +1. Resting is legal and non hazardous. We can rest even at max hp, and get rested bonus. 
+We cant stack rested bonus, only +1. Resting is legal and non hazardous. We can rest even at max hp, and get rested bonus. We need turn  pass to Rest. 
 
 ### Smuggle
 Risk 1-5 Sneak
@@ -91,7 +94,7 @@ Bluff: Charm, Shoot: Power, Hide: Sneak, Defend: Oranization
 If we fail we are jailed and need 100c to bail out.
 
 ### Fade
-After mission there is 5% chance of 1 Alert fade away, untill 0. 
+At the end of turn calculation (after missions) there is 5% chance of 1 Alert fade away, untill 0. We dont need to do anything for fade, just click turn. 
 
 ## Test
 We roll n d6 where n is our characteristic. and 4,5,6 is score. We need to meet equal or more target. Rolling 6 gives +1 point. Getting double points over required gives us +50c as bonus and some fluff text. 
