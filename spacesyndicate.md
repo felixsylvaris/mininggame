@@ -51,7 +51,7 @@ We smuggle goods from planets to planets. Pays 20-100c depending on risk.
 
 ### Raid HAZARD, 
 Risk 1-5 Power
-We commit haist to steal something. Pays 30-150c. But double chance for discovery by space police.
+We commit haist to steal something. Pays 50-250c. But double chance for discovery by space police.
 
 ### Bribe officials
 Risk 1-5 Charm
