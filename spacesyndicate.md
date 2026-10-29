@@ -4,6 +4,9 @@ This is vibe code game in html,css,js about running space criminal syndicate and
 *Story:* We are Shadowstar Syndicate a small aspiring crime organization in space full of ambitious, young and dynamic enterprenurs with elastic aproach to law. 
 We are smuggling illegal goods. And organizing underground Monster Mash fights. Maybe piracy in the future. 
 
+### Engine
+HTML, CSS, JS
+
 ## The GRAND VISION
 I see my game great and beautiful full of features. So many feautures they collapse into singularity. Generally it will be asymetric boardgame, where player is crime lord in space. 
 We play Jabba the Hutt but without royalities. And we build our empire. And we need to sneak under radar of Galactic Republic, we can corrupt them, bribe officials, support insurgence to keep them busy. 
