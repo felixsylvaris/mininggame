@@ -45,7 +45,7 @@ We dont HAVE TO pick mission or anything. No rest, no build, no mission. Just ch
 
 ### Rest LEGAL
 None
-Resting is always aviable and does not count to 3 missions, maybe even use agent card to trigger it. We dont perform mission. We restore 1HP, and get rested status which gives +1 to our next mission. 
+Resting is always aviable and does not count to 3 missions, maybe even use agent card to trigger it. We dont perform mission. We restore 1HP, and get rested status which gives +1success (regular, not 6) to our next mission. 
 We cant stack rested bonus, only +1. Resting is legal and non hazardous. We can rest even at max hp, and get rested bonus. We need turn  pass to Rest. 
 
 ### Smuggle
