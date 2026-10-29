@@ -67,7 +67,7 @@ We recruit extra muscle giving Nemo Goon item for +1 Power. We can have multiple
 
 ### Organize Cantina Network LEGAL
 Risk 1-3 Organization
-We get extra 5-15c for each cantina we have this turn. 
+We get extra 5-15c for each cantina we have this turn. It is one time bonus this turn, like reward from mission. 
 
 ### Risky Cargo HAZARD, LEGAL
 Risk 1-3 Sneak 
