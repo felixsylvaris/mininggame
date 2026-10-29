@@ -90,8 +90,8 @@ We organize entertaiment of legal kind for our patrons. 10-30c. Is legal.
 
 ## Alertness
 Life would be cool if not Space Police. They have alert levels ranging from 0 to 5. Each level gives level level * 10% chance to be catched during mission. When we are catched we can perform Bluff, Shoot, Hide, Defend action. 
-Bluff: Charm, Shoot: Power, Hide: Sneak, Defend: Oranization 
-If we fail we are jailed and need 100c to bail out.
+Bluff: Charm, Shoot: Power HAZARD, Hide: Sneak, Defend: Oranization 
+If we fail we are jailed and need 100c to bail out. During Shoot out we can get wounded for another -1HP. Apparently resistning arrest is LEGAL. We already broken the law. 
 
 ### Fade
 At the end of turn calculation (after missions) there is 5% chance of 1 Alert fade away, untill 0. We dont need to do anything for fade, just click turn. 
