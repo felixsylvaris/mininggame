@@ -43,7 +43,7 @@ We ave 3 mission to choose from at the time. Each have timer of 3-9 turns of ava
 ### Rest LEGAL
 None
 Resting is always aviable and does not count to 3 missions, maybe even use agent card to trigger it. We dont perform mission. We restore 1HP, and get rested status which gives +1 to our next mission. 
-We cant stack rested bonus, only +1. Resting is legal and non hazardous. 
+We cant stack rested bonus, only +1. Resting is legal and non hazardous. We can rest even at max hp, and get rested bonus. 
 
 ### Smuggle
 Risk 1-5 Sneak
